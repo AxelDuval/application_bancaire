@@ -87,6 +87,31 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.displayNone {
+  display: none;
+}
+
+#rules {
+  /* display: block; */
+  position: absolute;
+  top: 0%;
+  height: 100vh;
+  background-color : rgba(0,0,0,0.4);
+  opacity: 100%;
+  z-index: 10000;
+}
+
+#toRead {
+  background-color: lightblue;
+  padding: 1em;
+  max-width: 80%;
+  margin: auto;
+  margin-top : 15%;
+  z-index: 1000000;
+}
+/* 
+
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
