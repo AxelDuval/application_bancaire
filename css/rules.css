@@ -1,11 +1,9 @@
 #rules {
-    /* display: block; */
-    position: absolute;
+    position: fixed;
     top: 0%;
     height: 100vh;
     width: 100%;
     background-color : rgba(0,0,0,0.4);
-    opacity: 100%;
     z-index: 10000;
   }
   
@@ -16,4 +14,13 @@
     margin: auto;
     margin-top : 15%;
     z-index: 1000000;
+  }
+
+  #divAccept {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .displayNone{
+    display: none;
   }
