@@ -40,6 +40,9 @@ function showRates(){
 
             for(let index in res[elements]){
             // console.log(index);
+            // let newTr = document.createElement("tr");
+            // newTr.appendChild(td);
+            
             console.log(res[elements]);
             let value = res[elements][index];
             // console.log(res[elements][index]);
@@ -49,9 +52,6 @@ function showRates(){
                 for(let i in value){
                
                 } 
-
-        
-
         }    
     });
 
