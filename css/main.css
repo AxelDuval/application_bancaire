@@ -87,9 +87,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-.displayNone {
-  display: none;
-}
+
 
 #rules {
   /* display: block; */
@@ -108,6 +106,16 @@ textarea {
   margin: auto;
   margin-top : 15%;
   z-index: 1000000;
+}
+
+.addCount {
+  /* background-color: red; */
+  text-align: right;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+.fa-plus-circle {
+  font-size: 30px;
 }
 /* 
 

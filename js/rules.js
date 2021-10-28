@@ -1,7 +1,3 @@
-function hideRules(){
-    rules.classList.add('displayNone');
-}
-
 window.addEventListener("load", showRules);
 
 function showRules(){
