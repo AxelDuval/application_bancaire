@@ -1,58 +1,54 @@
 window.addEventListener("load", showRates);
-let tableTitles = [
-    "Banque",
-    "Taux d'intérêts",
-    "Frais de dossier"
-];
 
 function showRates(){
     
     fetch('data/taux.json').then(function(res){
         return res.json();
     }).then(function(res){
-        console.log(res);
-        let table = document.createElement('table');
-        let thead = document.createElement('thead');
-        let tableTitle = document.createElement("tr");
-        let tr = document.createElement("tr");
-        let td = document.createElement("td");
-        let thTitle = document.createElement("th");
-        let tbody = document.createElement("tbody");
-       
-        tableTitle.setAttribute('id', 'tableTitle');
-        table.classList.add('table');
-       
-        for (title of tableTitles){
-            tableTitle.innerHTML += `<th scope='col'>${title}</th>`;
+        let array = res;
+        console.log(array);
+
+         // get the value for the table header and store it to an array. 
+        let col = [];
+        for (let i = 0; i < array.length; i++) {
+            for (let key in array[i]) {
+                if (col.indexOf(key) === -1) {
+                    // console.log(key);
+                    col.push(key);
+                }
+            }
         }
 
-        tableTitle.appendChild(thTitle);
-        thead.appendChild(tableTitle);
-        table.appendChild(thead);
-        table.appendChild(tbody);
-        document.body.appendChild(table);
-        tbody.append(tr, td);
+        // create the table and add classes.
+        let table = document.createElement("table");
+        table.classList.add('table');
 
+        // create the header.
 
+        let tr = table.insertRow(-1);                   
 
-        for(let elements in res){
-            // console.log(res[elements]);
+        for (let i = 0; i < col.length; i++) {
+            let th = document.createElement("th");
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
 
-            for(let index in res[elements]){
-            // console.log(index);
-            // let newTr = document.createElement("tr");
-            // newTr.appendChild(td);
-            
-            console.log(res[elements]);
-            let value = res[elements][index];
-            // console.log(res[elements][index]);
-            // console.log(value);
-            tr.innerHTML += `<td>${value}</td>`;
+        // add the json to the table creating rows.
+        for (let i = 0; i < array.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (let j = 0; j < col.length; j++) {
+                let tableCell = tr.insertCell(-1);
+                tableCell.innerHTML = array[i][col[j]];
             }
-                for(let i in value){
-               
-                } 
-        }    
+        }
+
+        // add the table to a div
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+
     });
 
 }

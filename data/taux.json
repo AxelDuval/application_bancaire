@@ -1,19 +1,25 @@
-{
-        "société générale" : [
-            "Société générale",
-            "1.10%",
-            "300 €"
-        ],
+[
+        {
+           "Banque" : "Société générale",
+            "Taux d'emprunt" : "1.10%",
+            "Frais bancaires" : "300 €"
+        },
 
-        "crédit Mutuel" : [
-            "Crédit Mutuel",
-            "1.14%",
-            "150 €"
-        ],
+        {
+            "Banque" : "Crédit Mutuel",
+            "Taux d'emprunt": "1.14%",
+            "Frais bancaires" : "150 €"
+        },
 
-        "CIC" : [
-            "CIC",
-            "1.12%",
-            "1500 €"
-        ]  
-}
+        {
+            "Banque" : "CIC",
+            "Taux d'emprunt": "1.12%",
+            "Frais bancaires" : "1500 €"
+        }, 
+        
+        {
+            "Banque" : "Crédit Agricole",
+            "Taux d'emprunt": "1.05%",
+            "Frais bancaires" : "200 €"
+        }  
+    ]
