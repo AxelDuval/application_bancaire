@@ -41,13 +41,13 @@
             <a class="nav-link" href="index.html">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Actus.html">Actualités</a>
+            <a class="nav-link" href="Actus.html">Actualités</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="statistiques.html">Statistiques</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="creation.html">Création de compte</a>
+            <a class="nav-link active" aria-current="page" href="creation.html">Création de compte</a>
           </li>
           
         </ul>
@@ -57,19 +57,61 @@
   
   <main>
     <div class="container-fluid">
-        <div class="row m-3">
-            <h3>Actualités</h3>
-    </div>
+  
+      <div id="accounts" class="row mt-4">
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+              <div class="card-body">
+                <p class="card-text">Compte courant</p>
+                <p class="card-text">645 €</p></div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="#">Voir le détail</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        
+      </div>
     
+    </div>
+
     <div class="container-fluid">
-        <div id="news" class="row">
-            
+        <div class="row">
+           
+            <form id ="formAccount" class="row g-3">
+                
+                <div class="col-md-3">
+                  <label for="type" class="form-label">Type de compte</label>
+                  <select class="form-select" id="type" required>
+                    <option selected disabled value="">Choisir...</option>
+                    <option>Compte courant</option>
+                    <option>Livret A</option>
+                    <option>Compte epargne</option>
+                    <option>PEL</option>
+
+
+
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label for="amount" class="form-label">Montant à créditer (50€ minimun)</label>
+                  <input type="number" class="form-control" id="amount" min="50" required>
+                </div>
+                
+                <div class="col-12">
+                  <div id="create" class="btn btn-primary" onclick=createAccount()>Créer mon compte</div>
+                </div>
+              </form>
+
         </div>
     </div>  
 
+
+
+    
  </main>
   
- <footer class="py-3 bg-dark">
+ <footer class=" footer py-3 bg-dark">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
       <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Accueil</a></li>
       <li class="nav-item"><a href="Actus.html" class="nav-link px-2 text-muted">Actualités</a></li>
@@ -80,22 +122,11 @@
   
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
-  <script src="js/blog.js"></script>
+  <script src="js/creation.js"></script>
 
 
   
