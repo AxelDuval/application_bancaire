@@ -109,7 +109,6 @@ textarea {
 }
 
 .addCount {
-  /* background-color: red; */
   text-align: right;
   margin-right: 10px;
   margin-bottom: 5px;
@@ -117,8 +116,20 @@ textarea {
 .fa-plus-circle {
   font-size: 30px;
 }
-/* 
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background: #000000;
+  color: #FFFFFF;
+}
 
 /* ==========================================================================
    Helper classes
