@@ -1,0 +1,32 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>190</x><y>90</y><w>210</w><h>230</h></coordinates><panel_attributes>User
+--
+- id (int PK AI)
+- first_name (text 30)
+- last_name (text 30)
+- birthday (date)
+- user_account_creation (date)
+- email (varchar 30)
+- passwordHash (varchar 30)
+- adress (varchar 60)
+- postcode (int)
+- city (varchar 30)
+- country (varchar 30)
+- phone (int)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>510</x><y>120</y><w>210</w><h>200</h></coordinates><panel_attributes>Account
+--
+- id (int PK AI)
+- account_type (varchar)
+- account_number (int)
+- account_amount (int)
+- account_creation_date (date)
+- owner_id (FK)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>500</y><w>210</w><h>140</h></coordinates><panel_attributes>Operation
+--
+- id (int PK AI)
+- operation_type (varchar)
+- operation_date
+- operation_amount
+- operation_ status
+- owner_id
+- account_id</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>390</x><y>280</y><w>140</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.&gt;&gt;</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>310</y><w>200</w><h>210</h></coordinates><panel_attributes>lt=&lt;&lt;.&gt;&gt;</panel_attributes><additional_attributes>10;10;180;190</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>310</y><w>170</w><h>210</h></coordinates><panel_attributes>lt=&lt;&lt;.&gt;&gt;</panel_attributes><additional_attributes>10;190;150;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>430</x><y>250</y><w>50</w><h>30</h></coordinates><panel_attributes>1 : N
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>560</x><y>400</y><w>50</w><h>30</h></coordinates><panel_attributes>1 : N
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>310</x><y>400</y><w>50</w><h>30</h></coordinates><panel_attributes>1 : N
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element></diagram>
