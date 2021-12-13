@@ -19,6 +19,9 @@
           <li class="nav-item">
             <a class="nav-link" href="creation.php">Création de compte</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="deconnexion.php">Deconnexion</a>
+          </li>
           
         </ul>
       </div>

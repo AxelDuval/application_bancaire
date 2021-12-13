@@ -7,7 +7,7 @@ try {
 }
 
 // On récupère tout le contenu de la table user
-$sqlQuery = 'SELECT * FROM banque_PHP.User';
+$sqlQuery = 'SELECT email, password FROM banque_PHP.User';
 $userStatement = $db->prepare($sqlQuery);
 $userStatement->execute();
 $users = $userStatement->fetchAll();
@@ -19,9 +19,8 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
             $user['email'] === $_POST['email'] &&
             $user['password'] === $_POST['password']
         ) {
-            $loggedUser = [
-                'email' => $user['email'],
-            ];
+            // Enregistrement de l'email utilisateur en session
+            $_SESSION['LOGGED_USER'] = $user['email'];
         } else {
             $errorMessage = sprintf(
                 'Les informations envoyées ne permettent pas de vous identifier : (%s/%s)',
@@ -34,9 +33,9 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
 ?>
 
 <!--
-   Si utilisateur/trice est non identifié(e), on affiche le formulaire
+   Si utilisateur est non identifié, on affiche le formulaire
 -->
-<?php if (!isset($loggedUser)) : ?>
+<?php if (!isset($_SESSION['LOGGED_USER'])) : ?>
     <div class="row m-3">
         <form action="index.php" method="post">
             <!-- si message d'erreur on l'affiche -->
@@ -58,10 +57,10 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
         </form>
     </div>
     <!-- 
-    Si utilisateur/trice bien connectée on affiche un message de succès
+    Si utilisateur bien connecté on affiche un message de succès
 -->
 <?php else : ?>
     <div class="alert alert-success" role="alert">
-        Bonjour <?php echo $loggedUser['email']; ?> et bienvenue sur le site !
+        Bonjour <?php echo $_SESSION['LOGGED_USER']; ?> et bienvenue sur le site !
     </div>
 <?php endif; ?>
