@@ -3,7 +3,7 @@ include('templates/header.php');
 include('templates/nav.php');
 include('data/acounts_thomas.php');
 include('templates/footer.php');
-include('templates/connexion.php');
+include('templates/accounts_list.php');
 ?>
 
 <div class="row mt-4 p-3">

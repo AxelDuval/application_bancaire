@@ -41,7 +41,7 @@ VALUES
         0625740022
     );
 
-CREATE TABLE IF NOT EXISTS account (
+CREATE TABLE IF NOT EXISTS accounts (
     id INT NOT NULL AUTO_INCREMENT,
     account_type TEXT(30) NOT NULL,
     account_number VARCHAR(30) NOT NULL,
@@ -52,23 +52,23 @@ CREATE TABLE IF NOT EXISTS account (
 ) ENGINE = INNODB;
 
 ALTER TABLE
-    account
+    accounts
 ADD
-    CONSTRAINT FK_user_account FOREIGN KEY (owner_id) REFERENCES  banque_PHP.User(id);
+    CONSTRAINT FK_user_accounts FOREIGN KEY (owner_id) REFERENCES  banque_PHP.User(id);
 
 INSERT INTO
-    account
+    accounts
 VALUES
     (
         default,
         'Livret A',
         52366554555544455,
-        30000000,
+        300,
         NOW(),
         default
     );
 
-CREATE TABLE IF NOT EXISTS operation (
+CREATE TABLE IF NOT EXISTS operations (
     id INT NOT NULL AUTO_INCREMENT,
     operation_type TEXT(30) NOT NULL,
     operation_date DATE NOT NULL,
@@ -79,12 +79,12 @@ CREATE TABLE IF NOT EXISTS operation (
 ) ENGINE = INNODB;
 
 ALTER TABLE
-    operation
+    operations
 ADD
-    CONSTRAINT FK_account_operation FOREIGN KEY (account_id) REFERENCES account(id);
+    CONSTRAINT FK_account_operations FOREIGN KEY (account_id) REFERENCES accounts(id);
 
 INSERT INTO
-    operation
+    operations
 VALUES
     (
         default,
