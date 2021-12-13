@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS banque_PHP.User (
     birthday DATE NOT NULL,
     user_account_creation DATE NOT NULL,
     email VARCHAR(60) NOT NULL,
-    passwordHash BINARY(64) NOT NULL,
+    password VARCHAR(60) NOT NULL,
     adress VARCHAR(60) NOT NULL,
     postcode INT(15) NOT NULL,
     city TEXT(30) NOT NULL,
@@ -62,7 +62,7 @@ VALUES
     (
         default,
         'Livret A',
-        52366554555544455,
+        0001,
         300,
         NOW(),
         default
