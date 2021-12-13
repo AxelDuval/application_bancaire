@@ -1,10 +1,13 @@
-DROP DATABASE IF EXISTS banque;
+DROP DATABASE IF EXISTS banque_php;
+CREATE DATABASE banque_php CHARACTER SET 'utf8';
+USE banque_php;
 
-CREATE DATABASE banque CHARACTER SET 'utf8';
+DROP USER IF EXISTS 'BanquePHP'@'Localhost';
+CREATE USER 'BanquePHP'@'Localhost';
+GRANT ALL PRIVILEGES ON banque_php.* To 'BanquePHP'@'Localhost' IDENTIFIED BY 'banque76';
 
-USE banque;
 
-CREATE TABLE IF NOT EXISTS user (
+CREATE TABLE IF NOT EXISTS banque_PHP.User (
     id INT NOT NULL AUTO_INCREMENT,
     first_name TEXT(30) NOT NULL,
     last_name TEXT(30) NOT NULL,
@@ -51,7 +54,7 @@ CREATE TABLE IF NOT EXISTS account (
 ALTER TABLE
     account
 ADD
-    CONSTRAINT FK_user_account FOREIGN KEY (owner_id) REFERENCES user(id);
+    CONSTRAINT FK_user_account FOREIGN KEY (owner_id) REFERENCES  banque_PHP.User(id);
 
 INSERT INTO
     account
