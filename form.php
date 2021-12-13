@@ -1,4 +1,40 @@
 <?php
+include("config/mysql.php");
+
+try {
+  $db = new PDO('mysql:host=localhost;dbname=banque_php', "BanquePHP", "banque76");
+} catch (\Exception $e) {
+  echo "Erreur lors de la connexion à la base de données: " . $e->getMessage() . "<br/>";
+  die();
+}
+
+
+// Insertion en BDD
+
+// Ecriture de la requete
+$sqlQuery = $db->prepare('INSERT INTO accounts(
+  account_type, 
+  account_number, 
+  account_amount, 
+  account_creation_date,
+  )
+  VALUES (
+  :account_type, 
+  :account_number, 
+  :account_amount, 
+  :account_creation_date,
+  )');
+
+$insertAccount = $mysqlClient->prepare($sqlQuery);
+
+$insertAccount->execute([
+  'account_type' => $account_type,
+  'account_number' => $account_number,
+  'account_amount' => $account_amount,
+  'account_creation_date' => $account_creation_date,
+]);
+
+
 
 if (isset($_POST['account_type']) && isset($_POST['account_amount'])) {
 
@@ -7,29 +43,6 @@ if (isset($_POST['account_type']) && isset($_POST['account_amount'])) {
   $account_number = rand(1, 100);
   $account_creation_date = date_default_timezone_set('UTC');
 }
-// Insertion en BDD
-$insertAccount = $db->prepare('INSERT INTO accounts(
-  account_type, 
-  account_number, 
-  account_amount, 
-  account_creation_date,
-  owner_id
-  )
-  VALUES (
-  :account_type, 
-  :account_number, 
-  :account_amount, 
-  :account_creation_date,
-  :owner_id
-  )');
-
-$insertAccount->execute([
-  'account_type' => $account_type,
-  'account_number' => $account_number,
-  'account_amount' => $account_amount,
-  'account_creation_date' => $account_creation_date,
-  'owner_id'
-])
 
 ?>
 
