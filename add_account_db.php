@@ -26,8 +26,6 @@ $req = $db->prepare('INSERT INTO accounts(
   )');
 $req->execute([$account_type, $account_number, $account_amount, $account_creation_date]);
 
-
-
 include('templates/header.php');
 include('templates/nav.php');
 include('templates/accounts_list.php');
