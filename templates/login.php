@@ -7,7 +7,7 @@ try {
 }
 
 // On récupère tout le contenu de la table user
-$sqlQuery = 'SELECT email, password FROM banque_PHP.User';
+$sqlQuery = 'SELECT email, password, id FROM user';
 $userStatement = $db->prepare($sqlQuery);
 $userStatement->execute();
 $users = $userStatement->fetchAll();
@@ -21,6 +21,8 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
         ) {
             // Enregistrement de l'email utilisateur en session
             $_SESSION['LOGGED_USER'] = $user['email'];
+            $_SESSION['user_id'] = $user['id'];
+
         } else {
             $errorMessage = sprintf(
                 'Les informations envoyées ne permettent pas de vous identifier : (%s/%s)',

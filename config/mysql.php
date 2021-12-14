@@ -16,3 +16,5 @@ try {
 } catch(Exception $exception) {
     die('Erreur : '.$e->getMessage());
 }
+
+?>

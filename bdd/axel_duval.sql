@@ -1,13 +1,16 @@
 DROP DATABASE IF EXISTS banque_php;
+
 CREATE DATABASE banque_php CHARACTER SET 'utf8';
+
 USE banque_php;
 
-DROP USER IF EXISTS 'BanquePHP'@'Localhost';
-CREATE USER 'BanquePHP'@'Localhost';
-GRANT ALL PRIVILEGES ON banque_php.* To 'BanquePHP'@'Localhost' IDENTIFIED BY 'banque76';
+DROP USER IF EXISTS 'BanquePHP' @'Localhost';
 
+CREATE USER 'BanquePHP' @'Localhost';
 
-CREATE TABLE IF NOT EXISTS banque_PHP.User (
+GRANT ALL PRIVILEGES ON banque_php.* To 'BanquePHP' @'Localhost' IDENTIFIED BY 'banque76';
+
+CREATE TABLE IF NOT EXISTS user (
     id INT NOT NULL AUTO_INCREMENT,
     first_name TEXT(30) NOT NULL,
     last_name TEXT(30) NOT NULL,
@@ -43,7 +46,7 @@ VALUES
 
 CREATE TABLE IF NOT EXISTS accounts (
     id INT NOT NULL AUTO_INCREMENT,
-    account_type TEXT(30) NOT NULL,
+    account_type VARCHAR(30) NOT NULL,
     account_number VARCHAR(30) NOT NULL,
     account_amount INT(30) NOT NULL,
     account_creation_date DATE NOT NULL,
@@ -54,7 +57,7 @@ CREATE TABLE IF NOT EXISTS accounts (
 ALTER TABLE
     accounts
 ADD
-    CONSTRAINT FK_user_accounts FOREIGN KEY (owner_id) REFERENCES  banque_PHP.User(id);
+    CONSTRAINT FK_user_accounts FOREIGN KEY (owner_id) REFERENCES banque_PHP.User(id);
 
 INSERT INTO
     accounts
@@ -94,3 +97,14 @@ VALUES
         'en cours',
         default
     );
+
+CREATE TABLE IF NOT EXISTS test (
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name TEXT NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE = INNODB;
+
+INSERT INTO
+    test
+VALUES
+    (default, 'Axel');

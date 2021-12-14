@@ -8,12 +8,12 @@ try {
 
 
 // On récupère tout le contenu de la table accounts
-$sqlQuery = 'SELECT * FROM accounts';
+$sqlQuery = 'SELECT * FROM accounts WHERE owner_id = :usr_id';
 $accountsStatement = $db->prepare($sqlQuery);
-$accountsStatement->execute();
+$accountsStatement->execute(["usr_id" => $_SESSION['user_id']]);
 $accounts = $accountsStatement->fetchAll();
 
-echo '<div class="row mt-4 p-3">';
+echo '<div class="row mx-4 p-3">';
 // On affiche chaque compte
 foreach ($accounts as $account) {
 ?>
