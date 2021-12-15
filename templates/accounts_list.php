@@ -18,6 +18,11 @@ $userStatement = $db->prepare($user_db);
 $userStatement->execute();
 $user = $userStatement->fetchAll();
 
+$operation_db = 'SELECT  operation_date, operation_type, operation_amount FROM operations INNER JOIN accounts ON operations.id = operations.account_id';
+$operationStatement = $db->prepare($operation_db);
+$operationStatement->execute();
+$operation = $operationStatement->fetchAll();
+
 echo '<div class="row mx-4 p-3 mb-5">';
 // On affiche chaque compte
 for ($i=0; $i < sizeof($accounts); $i++) {
@@ -30,8 +35,8 @@ for ($i=0; $i < sizeof($accounts); $i++) {
         <p class='card-text'>Solde : <?php echo $accounts[$i]['account_amount']; ?> €</p>
         <p class='card-text'>Date de création : <?php echo $accounts[$i]['account_creation_date']; ?></p>
         <p class='card-text'>Propriétaire : <?php echo  $user[$i]['first_name']; ?> <?php echo  $user[$i]['last_name']; ?></p>
-        <p class='card-text'>Dernière opération : ...</p>
-        <div class='small text-white'><a class='small text-white stretched-link' href='#'>Voir le détail</a></div>
+        <p class='card-text'>Dernière opération :<br><?php echo  $operation[$i]['operation_date'];?> - <?php echo $operation[$i]['operation_type'];?> - <?php echo $operation[$i]['operation_amount']; ?> €</p>
+        <a class='small text-white stretched-link' href='account_detail.php?id=<?php echo $accounts[$i]['id'] ?>'>Voir le détail</a>
       </div>
     </div>
   </div>

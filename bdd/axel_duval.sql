@@ -65,7 +65,7 @@ VALUES
     (
         default,
         'Livret A',
-        0001,
+        4354645456465,
         300,
         NOW(),
         default
@@ -98,13 +98,4 @@ VALUES
         default
     );
 
-CREATE TABLE IF NOT EXISTS test (
-    id INT NOT NULL AUTO_INCREMENT,
-    first_name TEXT NOT NULL,
-    PRIMARY KEY (id)
-) ENGINE = INNODB;
 
-INSERT INTO
-    test
-VALUES
-    (default, 'Axel');
