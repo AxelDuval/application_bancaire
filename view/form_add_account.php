@@ -1,4 +1,4 @@
-<form method="post" action="add_account_db.php" class="row g-3 m-3">
+<form method="post" action="../model/add_account_db.php" class="row g-3 m-3">
   <h3>Créer un compte</h3>
   <div class="col-md-3">
     <label for="account_type" class="form-label">Type de compte</label>

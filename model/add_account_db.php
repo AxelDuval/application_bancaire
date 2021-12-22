@@ -1,10 +1,5 @@
 <?php
-try {
-  $db = new PDO('mysql:host=localhost;dbname=banque_php', "BanquePHP", "banque76");
-} catch (\Exception $e) {
-  echo "Erreur lors de la connexion à la base de données: " . $e->getMessage() . "<br/>";
-  die();
-}
+include('../config/mysql.php');
 
 if (isset($_POST['account_type']) && isset($_POST['account_amount'])){
   $account_type =  htmlspecialchars($_REQUEST['account_type']);
@@ -26,9 +21,9 @@ $req = $db->prepare('INSERT INTO accounts(
   )');
 $req->execute([$account_type, $account_number, $account_amount, $account_creation_date]);
 
-include('templates/header.php');
-include('templates/nav.php');
-include('templates/accounts_list.php');
+include('../templates/header.php');
+include('../templates/nav.php');
+include('../templates/accounts_list.php');
 echo "<div class='alert alert-success m-3 text-center' role='alert'>Le compte a bien été créé !</div>";
-include('templates/footer.php');
+include('../templates/footer.php');
 exit();

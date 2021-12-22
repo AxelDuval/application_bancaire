@@ -1,10 +1,5 @@
 <?php
-try {
-    $db = new PDO('mysql:host=localhost;dbname=banque_php', "BanquePHP", "banque76");
-} catch (\Exception $e) {
-    echo "Erreur lors de la connexion à la base de données: " . $e->getMessage() . "<br/>";
-    die();
-}
+// include('config/mysql.php');
 
 // On récupère tout le contenu de la table user
 $sqlQuery = 'SELECT email, password, id FROM user';
@@ -39,7 +34,7 @@ if (isset($_POST['email']) &&  isset($_POST['password'])) {
 -->
 <?php if (!isset($_SESSION['LOGGED_USER'])) : ?>
     <div class="row m-3">
-        <form action="index.php" method="post">
+        <form action="../index.php" method="post">
             <!-- si message d'erreur on l'affiche -->
             <?php if (isset($errorMessage)) : ?>
                 <div class="alert alert-danger" role="alert">

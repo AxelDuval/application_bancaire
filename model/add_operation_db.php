@@ -1,10 +1,5 @@
 <?php
-try {
-    $db = new PDO('mysql:host=localhost;dbname=banque_php', "BanquePHP", "banque76");
-} catch (\Exception $e) {
-    echo "Erreur lors de la connexion à la base de données: " . $e->getMessage() . "<br/>";
-    die();
-}
+include('../config/mysql.php');
 
 $id = $_GET['id'];
 
@@ -13,9 +8,6 @@ $sqlQuery = "SELECT account_amount FROM accounts WHERE id = $id";
 $accountsStatement = $db->prepare($sqlQuery);
 $accountsStatement->execute();
 $accounts = $accountsStatement->fetchAll();
-
-print_r($accounts);
-
 
 
 if (isset($_POST['operation_type']) && isset($_POST['operation_amount'])) {
@@ -50,9 +42,9 @@ $req = $db->prepare('INSERT INTO operations(
   )');
 $req->execute([$operation_type, $operation_amount, $operation_date, $operation_status, $account_id]);
 
-include('templates/header.php');
-include('templates/nav.php');
-include('templates/accounts_list.php');
+include('../templates/header.php');
+include('../templates/nav.php');
+include('../templates/accounts_list.php');
 echo "<div class='alert alert-success m-3 text-center' role='alert'>L'opération a bien été effectuée !</div>";
-include('templates/footer.php');
+include('../templates/footer.php');
 exit();

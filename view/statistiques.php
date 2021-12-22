@@ -1,6 +1,6 @@
 <?php
-include('templates/header.php');
-include('templates/nav.php');
+include('../templates/header.php');
+include('../templates/nav.php');
 ?>  
 
 
@@ -16,5 +16,5 @@ include('templates/nav.php');
 </main>
  
 <?php
-include('templates/footer.php');
+include('../templates/footer.php');
 ?>  

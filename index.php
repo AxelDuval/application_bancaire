@@ -1,7 +1,7 @@
 <?php
+include('config/mysql.php');
 include('templates/header.php');
 include('templates/nav.php');
-include('data/acounts_thomas.php');
 include_once('templates/login.php');
 ?>
 <?php if(isset($_SESSION['LOGGED_USER'])): ?>

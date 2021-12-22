@@ -2,7 +2,7 @@ window.addEventListener("load", showRates);
 
 function showRates(){
     
-    fetch('data/taux.json').then(function(res){
+    fetch('../data/taux.json').then(function(res){
         return res.json();
     }).then(function(res){
         let array = res;
