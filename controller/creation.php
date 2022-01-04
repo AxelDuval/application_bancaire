@@ -1,7 +1,7 @@
 <?php
 include('../templates/header.php');
 include('../templates/nav.php');
-include('../config/mysql.php');
+include('../mysql.php');
 
 include_once('../templates/login.php');
 ?>

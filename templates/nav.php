@@ -13,16 +13,16 @@
           <a class="nav-link" href="../view/Actus.php">Actualités</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../view/statistiques.php">Statistiques</a>
+          <a class="nav-link" href="../controller/statistiques.php">Statistiques</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../controller/creation.php">Création de compte</a>
+          <a class="nav-link" href="../controller/creation.php">Ouvrir un compte</a>
         </li>
         <nav class="nav-item">
-          <a class="nav-link" href="../controller/deconnexion.php">Deconnexion</a>
+          <a class="nav-link" id="logout" href="../controller/deconnexion.php">Deconnexion</a>
         </nav>
       </ul>
-
+     
     </div>
   </div>
 </nav>

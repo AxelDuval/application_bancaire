@@ -1,5 +1,5 @@
 <?php
-include('../config/mysql.php');
+include('../mysql.php');
 
 $id = $_GET['id'];
 
@@ -44,7 +44,7 @@ $req->execute([$operation_type, $operation_amount, $operation_date, $operation_s
 
 include('../templates/header.php');
 include('../templates/nav.php');
-include('../templates/accounts_list.php');
+include('../view/accounts_list.php');
 echo "<div class='alert alert-success m-3 text-center' role='alert'>L'opération a bien été effectuée !</div>";
 include('../templates/footer.php');
 exit();
